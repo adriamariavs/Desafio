@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { Text, View, TouchableOpacity, Modal } from "react-native";
+import { Text, View } from "react-native";
 import { styles } from "./src/style/Styles";
 //components
 import ImageComponent from "./src/componentes/ImageComponents";
 import Modalll from "./src/componentes/Modal";
 import TextInputs from "./src/componentes/TextInputs";
+import TouchComponent from "./src/componentes/TouchComponent";
 
 export default function App() {
   // Definição dos valores dos numeros
@@ -39,19 +40,25 @@ export default function App() {
   return (
     <View style={styles.container}>
       <View style={styles.SecondaryContainer}>
-        <ImageComponent />
+        <ImageComponent imgsource={require("./src/assets/logo.png")} />
         <Text style={styles.text}>Qual a melhor opção?</Text>
         <View style={styles.containerinputs}>
-          <TextInputs />
-          <TouchableOpacity
-            style={styles.botcaucular}
-            onPress={() => handlePress()}
-          >
-            <Text style={styles.textobot}>{botcaucular}</Text>
-          </TouchableOpacity>
+          <TextInputs
+            setGas={setNum2}
+            setAlc={setNum1}
+            alcool={num1}
+            gasolina={num2}
+          />
+          <TouchComponent handPress={handlePress} />
         </View>
       </View>
-      <Modalll />
+      <Modalll
+        combustivel={combustivel}
+        alcool={num1}
+        gasolina={num2}
+        vis={visible}
+        funcVisModal={visModal}
+      />
     </View>
   );
 }

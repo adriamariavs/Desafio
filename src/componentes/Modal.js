@@ -1,32 +1,19 @@
 import { View, Text, Modal, TouchableOpacity } from "react-native";
-import ImageComponent2 from "./ImageComponents2";
+import ImageComponent from "./ImageComponents";
 import { styles } from "../style/Styles";
 import React, { useState } from "react";
 
-export default function Modalll() {
-  visModal = (x) => {
-    if (!visible) {
-      setVisible(x);
-    } else {
-      setVisible(x);
-    }
-  };
-
-  // Funcionamento de Visibilidade usando o useState
-  const [visible, setVisible] = useState(false);
-
-  // Definição do tipo de Gasolina para usar no Modal
-  const [combustivel, setCombustivel] = useState("");
-
-  // Definição dos valores dos numeros
-  const [num1, setNum1] = useState("");
-  const [num2, setNum2] = useState("");
-  const botcaucular = "Calcular";
-
+export default function Modalll({
+  vis,
+  alcool,
+  gasolina,
+  combustivel,
+  funcVisModal,
+}) {
   return (
-    <Modal transparent={true} animationType="fade" visible={visible}>
+    <Modal transparent={true} animationType="fade" visible={vis}>
       <View style={styles.SecondaryContainer2}>
-        <ImageComponent2 />
+        <ImageComponent imgsource={require("../assets/gas.png")} />
         <Text style={styles.textfrase}>{combustivel}</Text>
         <Text
           style={{
@@ -38,10 +25,10 @@ export default function Modalll() {
         >
           Com os preços:
         </Text>
-        <Text style={styles.textoprecos}>Álcool: R$ {num1}</Text>
-        <Text style={styles.textoprecos}>Gasolina: R$ {num2}</Text>
+        <Text style={styles.textoprecos}>Álcool: R$ {alcool}</Text>
+        <Text style={styles.textoprecos}>Gasolina: R$ {gasolina}</Text>
         <TouchableOpacity
-          onPress={() => visModal(false)}
+          onPress={() => funcVisModal(false)}
           style={{
             width: "65%",
             height: "12%",
