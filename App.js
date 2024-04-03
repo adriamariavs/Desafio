@@ -11,7 +11,6 @@ export default function App() {
   // Definição dos valores dos numeros
   const [num1, setNum1] = useState("");
   const [num2, setNum2] = useState("");
-  const botcaucular = "Calcular";
 
   // Funcionamento de Visibilidade usando o useState
   const [visible, setVisible] = useState(false);
