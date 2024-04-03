@@ -1,6 +1,7 @@
 import { View, Text, Modal, TouchableOpacity } from "react-native";
 import ImageComponent2 from "./ImageComponents2";
 import { styles } from "../style/Styles";
+import React, { useState } from "react";
 
 export default function Modalll() {
   visModal = (x) => {
@@ -10,6 +11,18 @@ export default function Modalll() {
       setVisible(x);
     }
   };
+
+  // Funcionamento de Visibilidade usando o useState
+  const [visible, setVisible] = useState(false);
+
+  // Definição do tipo de Gasolina para usar no Modal
+  const [combustivel, setCombustivel] = useState("");
+
+  // Definição dos valores dos numeros
+  const [num1, setNum1] = useState("");
+  const [num2, setNum2] = useState("");
+  const botcaucular = "Calcular";
+
   return (
     <Modal transparent={true} animationType="fade" visible={visible}>
       <View style={styles.SecondaryContainer2}>
